@@ -1,0 +1,32 @@
+<!--o app.component eh a porta de entrada da aplicacao que direciona para novos components-->
+<!--a tag app-nova-transferencia eh um Selector mapeado pelo nova-transferencia.component.ts-->
+<!--o component recebe o event bind com o output criado na classe, onde a variavel $event recebe o valor transmitido com o metodo emit-->
+<!--o bind executa a propriedade criada na classe do Component-->
+
+<!--Metodo removido visto que a atualizacao do template foi realizado via os metodos do modulo httpClient-->
+<!--(aoTransferir)="transferir($event)"-->
+
+<!--component. Comentado visto que sera realizado de outra forma-->
+<!--  <app-nova-transferencia></app-nova-transferencia>  -->
+
+<!--component. Comentado visto que sera realizado de outra forma-->
+<!--  <app-extrato></app-extrato>  -->
+
+<!--o router-outlet permite usar as rotas configuradas no app-routing.module.ts-->
+
+<header>
+  <!--Usando o href sempre que se clica no link toda a pagina eh atualizada novamente-->
+  <!--  <a href="extrato">Extrato</a> -->
+  <!--  <a href="nova-transferencia/">Nova Transferencia</a> -->
+
+  <!--Usando o routerLink a pagina nao eh atualizada ao clicar no link-->
+  <!--Ele so pede o componente ao clicar e nao toda a pagina novamente-->
+  <!--O routerLinKActive permite a classe css ativo, que esconde o link caso o component esteja inativo-->
+  <a routerLink="nova-transferencia" routerLinkActive="ativo">Nova Transferencia</a>
+  <a routerLink="extrato" routerLinkActive="ativo">Extrato</a>
+</header>
+
+<!-- tag do module router module -->
+<main>
+  <router-outlet></router-outlet>
+</main>

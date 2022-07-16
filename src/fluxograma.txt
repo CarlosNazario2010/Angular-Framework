@@ -1,0 +1,33 @@
+
+  1 - O index.html eh o template de entrada da aplicacao. Ela direciona
+a requisicao para o component app-root que possui o seletor mapeado pelo
+app.component.ts
+
+  2 - No app-component, o app.component.ts possui em seu construtor os
+services da aplicacao. Este entao direciona a requisicao para o
+transferencias.service.ts responsavel pelas regras de negocio da aplicacao.
+Mas antes de chegar aos services, a requisicao passa pelo app.component.html que,
+como no caso do index.html, possui tambem uma tag para os components usadas na
+pagina. No caso eh app-nova-tranferencia e o app-extrato. Estes sao tags que
+direcionam para o NovaTransferenciaComponent e ExtratoComponent.
+
+  3 - Nos arquivos ts dos components Extrato e NovaTransferencia, ha a injecao das
+dependencias dos services que sao responsaveis pelos metodos que utilizamos na
+aplicacao. A diferenca maior eh que o NovaTransferenciaComponent possui metodos
+que sao invocados quando necessario e o ExtratoComponent possui no metodo ngOnInit
+o metodo que simula um pull de dados de uma api de transferencias, que se encontra
+no diretorio dados no formato json.
+
+  4 - O TransferenciasService sim possui os metodos que irao realizar as regras
+de negocio da aplicacao e depois devolver para os templates dos components para que
+ai sim sejam renderizados no navegador. O service possui os metodos do modulo
+HttpClient que utiliza os verbos http para tratar as requisicoes (em geral para
+realizar o CRUD da aplicacao).
+
+  5 - O arquivo transfencia.model.ts possui uma interface com a configuracao para os
+arquivos json que eh usado no simulador da api rest.
+
+  6 - O modulo app-routing-module.ts possui as rotas que serao chamadas nas requisicoes
+
+  7 - Por fim o app.module.ts possui os imports dos modulos, dos compoenents e a
+configuracao dos providers da aplicacao

@@ -1,0 +1,31 @@
+<!--exibicao dos valores no template-->
+<!--as chaves duplas informam a interpolacao dos valores-->
+<!--A interrogacao inicializa os valores, ja que estes nao foram inicializados na classe. Seria o mesmo que inicializar com "var: any = {}" diretamente na classe -->
+<!--Valor e Destino recebidos com a anotacao @Input da propriedade transferencia de app.component > nova-transferencia.component > extrato.component -->
+<!--O *ngFor itera sobre a lista de transferencias do extrato-component-->
+<!--O | date (pipeDate) permite a formatacao da data-->
+<!--O | currency (pipeCurerncy) permite a formatacao monetaria-->
+<!--*ngIf eh uma condicional semelhante aos ifs/elses de outras liguagens. Se o array nao estiver preenchido, renderiza que nao ha operacao cadastrada-->
+
+<section class="conteiner">
+  <h2 class="titulo">Extrato de Transferencias</h2>
+  <table class="tabela">
+    <thead class="tabela__cabecalho">
+      <th class="tabela__cabecalho__conteudo">Data</th>
+      <th class="tabela__cabecalho__conteudo">Valor</th>
+      <th class="tabela__cabecalho__conteudo">Destino</th>
+    </thead>
+    <tbody *ngIf="transferenciasEC?.length > 0; else listaVazia">
+      <tr class="tabela__linha" *ngFor="let transferencia of transferenciasEC">
+        <td class="tabela__conteudo">
+          {{ transferencia.data | date: "short" }}
+        </td>
+        <td class="tabela__conteudo">{{ transferencia.valor | currency }}</td>
+        <td class="tabela__conteudo">{{ transferencia.destino }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #listaVazia>
+    <p>Nenhuma operacao cadastrada</p>
+  </ng-template>
+</section>
