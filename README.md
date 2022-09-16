@@ -1,1 +1,1 @@
-# Projeto usando o FrameWork para front-end Angular
+# Projeto usando o Framework para front-end Angular
